@@ -1,0 +1,95 @@
+% !Mode:: "TeX:GBK"
+%# -*- coding:gbk -*-
+%author: tpu01yzx@163.com
+%2021年广东省自然科学基金面上项目报告正文
+%正文小四, 单倍行距，Windows字体
+\documentclass[GBK,zihao=-4, a4paper,linespread=1.5,fontset=windows, scheme=chinese]{ctexart}
+%修改文档格式
+%正文紧跟标题后, 间隔为0pt，宋体，缩进2个汉字，标题四号字宋体加粗。
+\ctexset{
+section={runin=true, afterskip=0pt, name={,\songti{、}\hspace*{-\ccwd}}, number=\zhnum{section}, format={\zihao{4}\songti\bfseries}},
+subsection={runin=true, afterskip=0pt, name={,\songti{、}\hspace*{-\ccwd}}, number=\arabic{subsection}, format={\zihao{4}\songti\bfseries}},
+subsubsection={name={,\songti{、}\hspace*{-\ccwd}}, number=\arabic{subsection}.\arabic{subsubsection}, format={\zihao{4}\songti\bfseries}}
+}
+%设置标题后的说明文字紧跟标题后面
+\usepackage{lipsum, titlesec}
+%\titlespacing*{\section*}{2 \ccwd}{0pt}{0pt}
+\titlespacing*{\section}{2 \ccwd}{0pt}{0pt}
+\titlespacing*{\subsection}{2 \ccwd}{0pt}{0pt}
+
+%页面设置，边距均为1.5cm
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm]{geometry}
+
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%清空页眉
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+%设置页脚
+\cfoot{\centering\CJKfamily{Arial}\selectfont\fontsize{10pt}{10pt}\selectfont\thepage/\pageref{LastPage}\par}
+%不高亮链接，正常显示
+\usepackage[hidelinks]{hyperref}
+
+%报告标题宋体+黑体+小二+居中
+\def\cntitle#1{{\centering\zihao{-2}\songti\bfseries #1\par}}
+%标题后面紧跟的一段未粗体的解释说明
+%\usepackage{parskip}
+\def\aftitle#1{{\zihao{4}\songti #1}}
+
+%自定义的章节标题：黑体标题+非黑体标题组合体
+\usepackage{xparse}
+\DeclareDocumentCommand\GDsectionS{m g}{\section*{#1}\IfNoValueF{#2}{\aftitle{#2}}\indent}
+\DeclareDocumentCommand\GDsection{m g}{\section{#1}\IfNoValueF{#2}{\aftitle{#2}}\indent}
+\DeclareDocumentCommand\GDsubsection{m g}{\subsection{#1}\IfNoValueF{#2}{\aftitle{#2}}\indent}
+
+%输出标题
+\newcommand\GDTitle{\cntitle{广东省自然科学基金面上项目}\vspace{-8pt}\cntitle{报告正文}}
+
+%%以下是一些常用的包
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[square,numbers,sort&compress]{natbib}
+
+\begin{document}
+
+\GDTitle
+
+\GDsectionS{参照以下提纲撰写}{，要求内容翔实、清晰，层次分明，标题突出。}
+%\section*{参照以下提纲撰写}\aftitle{，要求内容翔实、清晰，层次分明，标题突出。}
+
+\GDsection{立论依据}
+
+
+\GDsubsection{研究意义}{（对基础研究，着重结合国际科学发展趋势，论述项目的科学意义；对应用基础研究，着重结合学科前沿、围绕国民经济和社会发展中的重要科技问题，论述其应用前景）。}
+
+\GDsubsection{国内外研究现状。}
+
+
+\GDsubsection{本项目的创新之处。}
+
+
+\GDsubsection{主要参考文献及出处}{（格式：论文-\/-作者．题目．刊名．年份．卷（期）．页码／专著-\/-作者．书名．出版者．年份）。}
+%使用bib文献库进行管理
+%\bibliographystyle{gbt7714-plain}
+%\nocite{*}
+%\bibliography{dug}
+
+\GDsection{研究方案}
+
+
+\GDsubsection{研究目标、研究内容和拟解决的关键问题。}
+
+
+\GDsubsection{拟采取的研究方法、技术路线、实验方案及可行性分析。 }
+
+
+\GDsubsection{年度研究计划及预期研究成果。 }
+
+\GDsection{研究条件与基础}
+
+\GDsubsection{已取得的研究工作成绩及与本项目有关的研究工作积累}{（请着重填写申请人近期的主要工作业绩以及与本项目相关的研究工作积累）。}
+
+\GDsubsection{已具备的实验条件，尚缺少的实验条件和拟解决的途径}{（包括利用国家重点实验室和部门开放实验室的计划与落实情况））。}
+
+\end{document}
